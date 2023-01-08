@@ -53,6 +53,7 @@
 		B642DB2F296A6D9B00A6F4B3 /* Tock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tock.mp3; sourceTree = "<group>"; };
 		B642DB31296A744A00A6F4B3 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		B6A19834296B42F200C05454 /* Sources.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sources.txt; sourceTree = "<group>"; };
+		B6A19837296B4E1E00C05454 /* Cadance-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Cadance-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 				B642DB31296A744A00A6F4B3 /* Metronome.swift */,
 				B6A19836296B440500C05454 /* Sounds */,
 				B629AF41296A2A7200772D97 /* Assets.xcassets */,
+				B6A19837296B4E1E00C05454 /* Cadance-Watch-App-Info.plist */,
 				B629AF43296A2A7200772D97 /* Preview Content */,
 			);
 			path = "Cadance Watch App";
@@ -354,6 +356,7 @@
 				DEVELOPMENT_TEAM = 2T7578C428;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Cadance-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadance;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -384,6 +387,7 @@
 				DEVELOPMENT_TEAM = 2T7578C428;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Cadance-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadance;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
