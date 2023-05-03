@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B629AF39296A2A7000772D97 /* Cadance Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B629AF38296A2A7000772D97 /* Cadance Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B629AF3E296A2A7000772D97 /* CadanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3D296A2A7000772D97 /* CadanceApp.swift */; };
-		B629AF40296A2A7000772D97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3F296A2A7000772D97 /* ContentView.swift */; };
+		B629AF40296A2A7000772D97 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3F296A2A7000772D97 /* Player.swift */; };
 		B629AF42296A2A7200772D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B629AF41296A2A7200772D97 /* Assets.xcassets */; };
 		B629AF45296A2A7200772D97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B629AF44296A2A7200772D97 /* Preview Assets.xcassets */; };
 		B642DB2E296A4D1F00A6F4B3 /* on_beat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B642DB2D296A4D1F00A6F4B3 /* on_beat.mp3 */; };
@@ -46,7 +46,7 @@
 		B629AF32296A2A7000772D97 /* Cadance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B629AF38296A2A7000772D97 /* Cadance Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cadance Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B629AF3D296A2A7000772D97 /* CadanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadanceApp.swift; sourceTree = "<group>"; };
-		B629AF3F296A2A7000772D97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B629AF3F296A2A7000772D97 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B629AF41296A2A7200772D97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B629AF44296A2A7200772D97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B642DB2D296A4D1F00A6F4B3 /* on_beat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = on_beat.mp3; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				B629AF3D296A2A7000772D97 /* CadanceApp.swift */,
-				B629AF3F296A2A7000772D97 /* ContentView.swift */,
+				B629AF3F296A2A7000772D97 /* Player.swift */,
 				B642DB31296A744A00A6F4B3 /* Metronome.swift */,
 				B6A19836296B440500C05454 /* Sounds */,
 				B629AF41296A2A7200772D97 /* Assets.xcassets */,
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B642DB32296A744A00A6F4B3 /* Metronome.swift in Sources */,
-				B629AF40296A2A7000772D97 /* ContentView.swift in Sources */,
+				B629AF40296A2A7000772D97 /* Player.swift in Sources */,
 				B629AF3E296A2A7000772D97 /* CadanceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

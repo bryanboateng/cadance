@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct Player: View {
 	private let minimumCadance = 120
 	private let maximumCadance = 250
 	@AppStorage("cadance") var cadance: Int = 175
@@ -72,8 +72,8 @@ struct ContentView: View {
 	}
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct Player_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView()
+		Player()
 	}
 }
