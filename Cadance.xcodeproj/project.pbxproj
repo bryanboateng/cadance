@@ -12,8 +12,8 @@
 		B629AF40296A2A7000772D97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3F296A2A7000772D97 /* ContentView.swift */; };
 		B629AF42296A2A7200772D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B629AF41296A2A7200772D97 /* Assets.xcassets */; };
 		B629AF45296A2A7200772D97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B629AF44296A2A7200772D97 /* Preview Assets.xcassets */; };
-		B642DB2E296A4D1F00A6F4B3 /* Tick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B642DB2D296A4D1F00A6F4B3 /* Tick.mp3 */; };
-		B642DB30296A6D9B00A6F4B3 /* Tock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B642DB2F296A6D9B00A6F4B3 /* Tock.mp3 */; };
+		B642DB2E296A4D1F00A6F4B3 /* on_beat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B642DB2D296A4D1F00A6F4B3 /* on_beat.mp3 */; };
+		B642DB30296A6D9B00A6F4B3 /* off_beat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B642DB2F296A6D9B00A6F4B3 /* off_beat.mp3 */; };
 		B642DB32296A744A00A6F4B3 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B642DB31296A744A00A6F4B3 /* Metronome.swift */; };
 		B6A19835296B42F200C05454 /* Sources.txt in Resources */ = {isa = PBXBuildFile; fileRef = B6A19834296B42F200C05454 /* Sources.txt */; };
 /* End PBXBuildFile section */
@@ -49,8 +49,8 @@
 		B629AF3F296A2A7000772D97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B629AF41296A2A7200772D97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B629AF44296A2A7200772D97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B642DB2D296A4D1F00A6F4B3 /* Tick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tick.mp3; sourceTree = "<group>"; };
-		B642DB2F296A6D9B00A6F4B3 /* Tock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tock.mp3; sourceTree = "<group>"; };
+		B642DB2D296A4D1F00A6F4B3 /* on_beat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = on_beat.mp3; sourceTree = "<group>"; };
+		B642DB2F296A6D9B00A6F4B3 /* off_beat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = off_beat.mp3; sourceTree = "<group>"; };
 		B642DB31296A744A00A6F4B3 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		B6A19834296B42F200C05454 /* Sources.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sources.txt; sourceTree = "<group>"; };
 		B6A19837296B4E1E00C05454 /* Cadance-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Cadance-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -110,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				B6A19834296B42F200C05454 /* Sources.txt */,
-				B642DB2D296A4D1F00A6F4B3 /* Tick.mp3 */,
-				B642DB2F296A6D9B00A6F4B3 /* Tock.mp3 */,
+				B642DB2D296A4D1F00A6F4B3 /* on_beat.mp3 */,
+				B642DB2F296A6D9B00A6F4B3 /* off_beat.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -203,9 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B629AF45296A2A7200772D97 /* Preview Assets.xcassets in Resources */,
-				B642DB30296A6D9B00A6F4B3 /* Tock.mp3 in Resources */,
+				B642DB30296A6D9B00A6F4B3 /* off_beat.mp3 in Resources */,
 				B6A19835296B42F200C05454 /* Sources.txt in Resources */,
-				B642DB2E296A4D1F00A6F4B3 /* Tick.mp3 in Resources */,
+				B642DB2E296A4D1F00A6F4B3 /* on_beat.mp3 in Resources */,
 				B629AF42296A2A7200772D97 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

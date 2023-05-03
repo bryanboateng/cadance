@@ -1,57 +1,71 @@
 import AVFoundation
+import Combine
 
-class Metronome: ObservableObject {
-	private let tickPlayer: AVAudioPlayer
-	private let tockPlayer: AVAudioPlayer
-	private var tickShouldPlay = true
-	private var timer: Timer?
-	
-	@Published var isPlaying = false
-	
-	init() {
-		tickPlayer = try! AVAudioPlayer(
-			contentsOf: Bundle.main.url(forResource: "Tick", withExtension: "mp3")!
-		)
-		tockPlayer = try! AVAudioPlayer(
-			contentsOf: Bundle.main.url(forResource: "Tock", withExtension: "mp3")!
-		)
+extension Metronome {
+	enum State: Equatable {
+		case off
+		case on(RythmState)
 	}
-	
-	func start(beatsPerMinute: Int) {
-		let session = createAudioSession()
-		Task { @MainActor in
-			try! await session.activate(options: [])
-			isPlaying = true
-			tickShouldPlay = true
-			tickPlayer.prepareToPlay()
-			tockPlayer.prepareToPlay()
-			timer = Timer(
-				timeInterval: 60.0 / TimeInterval(beatsPerMinute),
-				target: self,
-				selector: #selector(playSound),
-				userInfo: nil,
-				repeats: true
-			)
-			guard let timer else { fatalError() }
-			timer.tolerance = 0
-			RunLoop.current.add(timer, forMode: .common)
+	enum RythmState {
+		case onBeat
+		case offBeat
+		func toggled() -> Self {
+			switch self {
+			case .onBeat:
+				return .offBeat
+			case .offBeat:
+				return .onBeat
+			}
 		}
 	}
-	
-	func stop() {
-		isPlaying = false
-		tickPlayer.stop()
-		tockPlayer.stop()
-		guard let timer else { fatalError() }
-		timer.invalidate()
-		self.timer = nil
-		tickShouldPlay = true
+}
+
+class Metronome: ObservableObject {
+	private let onBeatPlayer = try! AVAudioPlayer(
+		contentsOf: Bundle.main.url(forResource: "on_beat", withExtension: "mp3")!
+	)
+	private let offBeatPlayer = try! AVAudioPlayer(
+		contentsOf: Bundle.main.url(forResource: "off_beat", withExtension: "mp3")!
+	)
+	private var timerConnection: Cancellable?
+	private var playSoundConnection: Cancellable?
+
+	@Published var state = State.off
+
+	func start(beatsPerMinute: Int) {
+		let session = configureAudioSession()
+		Task { @MainActor in
+			try! await session.activate(options: [])
+			state = .on(.offBeat)
+			onBeatPlayer.prepareToPlay()
+			offBeatPlayer.prepareToPlay()
+			let timer = Timer.publish(
+				every: TimeInterval(60) / TimeInterval(beatsPerMinute),
+				tolerance: 0,
+				on: .main,
+				in: .common
+			)
+			timerConnection = timer.connect()
+			playSoundConnection = timer.sink { _ in
+				self.playSound()
+			}
+		}
 	}
 
-	private func createAudioSession() -> AVAudioSession {
+	func stop() {
+		state = .off
+		onBeatPlayer.stop()
+		offBeatPlayer.stop()
+		timerConnection?.cancel()
+		timerConnection = nil
+		playSoundConnection?.cancel()
+		playSoundConnection = nil
+	}
+
+	private func configureAudioSession() -> AVAudioSession {
 		let session = AVAudioSession.sharedInstance()
 		try! session.setCategory(
-			AVAudioSession.Category.playback,
+			.playback,
 			mode: .default,
 			policy: .longFormAudio,
 			options: []
@@ -59,15 +73,21 @@ class Metronome: ObservableObject {
 		return session
 	}
 
-	@objc func playSound() {
-		if tickShouldPlay {
-			play(player: tickPlayer)
-		} else {
-			play(player: tockPlayer)
+	private func playSound() {
+		switch state {
+		case .off:
+			fatalError()
+		case .on(let bool):
+			switch bool {
+			case .onBeat:
+				play(player: offBeatPlayer)
+			case .offBeat:
+				play(player: onBeatPlayer)
+			}
+			state = .on(bool.toggled())
 		}
-		tickShouldPlay.toggle()
 	}
-	
+
 	private func play(player: AVAudioPlayer) {
 		if player.isPlaying {
 			player.pause()

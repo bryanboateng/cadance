@@ -9,14 +9,17 @@ struct ContentView: View {
 	var body: some View {
 		VStack(spacing: 8) {
 			Text(String(cadance))
+				.foregroundStyle(cadanceTextHierarchicalShapeStyle)
+				.foregroundStyle(cadanceTextColor)
 			Button {
-				if metronome.isPlaying {
-					metronome.stop()
-				} else {
+				switch metronome.state {
+				case .off:
 					metronome.start(beatsPerMinute: cadance)
+				case .on:
+					metronome.stop()
 				}
 			} label: {
-				Image(systemName: metronome.isPlaying ? "stop" : "play")
+				Image(systemName: buttonSymbolName)
 					.symbolVariant(.circle)
 					.symbolRenderingMode(.hierarchical)
 					.imageScale(.large)
@@ -24,6 +27,35 @@ struct ContentView: View {
 			.buttonStyle(.plain)
 		}
 		.font(.system(size: fontSize))
+	}
+	private var buttonSymbolName: String {
+		switch metronome.state {
+		case .off:
+			return "play"
+		case .on:
+			return "stop"
+		}
+	}
+	private var cadanceTextColor: Color {
+		switch metronome.state {
+		case .off:
+			return .primary
+		case .on:
+			return .yellow
+		}
+	}
+	private var cadanceTextHierarchicalShapeStyle: HierarchicalShapeStyle {
+		switch metronome.state {
+		case .off:
+			return .primary
+		case .on(let rythmState):
+			switch rythmState {
+			case .onBeat:
+				return .primary
+			case .offBeat:
+				return .secondary
+			}
+		}
 	}
 }
 
