@@ -4,9 +4,11 @@ struct ContentView: View {
 	private let cadance = 170
 
 	@StateObject private var metronome = Metronome()
+	@ScaledMetric private var fontSize = 60
 
 	var body: some View {
-		VStack(alignment: .center) {
+		VStack(spacing: 8) {
+			Text(String(cadance))
 			Button {
 				if metronome.isPlaying {
 					metronome.stop()
@@ -18,10 +20,10 @@ struct ContentView: View {
 					.symbolVariant(.circle)
 					.symbolRenderingMode(.hierarchical)
 					.imageScale(.large)
-					.font(.system(size: 50))
 			}
 			.buttonStyle(.plain)
 		}
+		.font(.system(size: fontSize))
 	}
 }
 
