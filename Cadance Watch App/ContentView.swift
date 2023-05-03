@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-	private let cadance = 170
-
+	private let minimumCadance = 120
+	private let maximumCadance = 250
+	@AppStorage("cadance") var cadance: Int = 175
 	@StateObject private var metronome = Metronome()
 	@ScaledMetric private var fontSize = 60
 
@@ -11,6 +12,18 @@ struct ContentView: View {
 			Text(String(cadance))
 				.foregroundStyle(cadanceTextHierarchicalShapeStyle)
 				.foregroundStyle(cadanceTextColor)
+				.focusable(metronome.state == .off)
+				.digitalCrownRotation(
+					Binding(
+						get: { Float(cadance) },
+						set: { cadance = Int($0) }
+					),
+					from: Float(minimumCadance),
+					through: Float(maximumCadance),
+					by: 1,
+					sensitivity: .medium,
+					isContinuous: true
+				)
 			Button {
 				switch metronome.state {
 				case .off:
