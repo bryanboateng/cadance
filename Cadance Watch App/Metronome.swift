@@ -21,11 +21,8 @@ extension Metronome {
 }
 
 class Metronome: ObservableObject {
-	private let onBeatPlayer = try! AVAudioPlayer(
-		contentsOf: Bundle.main.url(forResource: "on_beat", withExtension: "mp3")!
-	)
-	private let offBeatPlayer = try! AVAudioPlayer(
-		contentsOf: Bundle.main.url(forResource: "off_beat", withExtension: "mp3")!
+	private let beatPlayer = try! AVAudioPlayer(
+		contentsOf: Bundle.main.url(forResource: "beat", withExtension: "m4a")!
 	)
 	private var timerConnection: Cancellable?
 	private var playSoundConnection: Cancellable?
@@ -37,8 +34,7 @@ class Metronome: ObservableObject {
 		Task { @MainActor in
 			try! await session.activate(options: [])
 			state = .on(.offBeat)
-			onBeatPlayer.prepareToPlay()
-			offBeatPlayer.prepareToPlay()
+			beatPlayer.prepareToPlay()
 			let timer = Timer.publish(
 				every: TimeInterval(60) / TimeInterval(beatsPerMinute),
 				tolerance: 0,
@@ -54,8 +50,7 @@ class Metronome: ObservableObject {
 
 	func stop() {
 		state = .off
-		onBeatPlayer.stop()
-		offBeatPlayer.stop()
+		beatPlayer.stop()
 		timerConnection?.cancel()
 		timerConnection = nil
 		playSoundConnection?.cancel()
@@ -77,14 +72,9 @@ class Metronome: ObservableObject {
 		switch state {
 		case .off:
 			fatalError()
-		case .on(let bool):
-			switch bool {
-			case .onBeat:
-				play(player: offBeatPlayer)
-			case .offBeat:
-				play(player: onBeatPlayer)
-			}
-			state = .on(bool.toggled())
+		case .on(let rythmState):
+			play(player: beatPlayer)
+			state = .on(rythmState.toggled())
 		}
 	}
 

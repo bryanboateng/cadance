@@ -1,2 +1,1 @@
-on_beat.mp3: https://pixabay.com/sound-effects/metronome-85688/
-off_beat.mp3: https://pixabay.com/sound-effects/largegranitedry-38219/
+beat.m4a: https://www.youtube.com/watch?v=leGY0g2wogM
