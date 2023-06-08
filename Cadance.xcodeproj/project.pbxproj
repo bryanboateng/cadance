@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B601A12229E4E82C008669DF /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601A12129E4E82C008669DF /* VolumeControl.swift */; };
 		B629AF39296A2A7000772D97 /* Cadance Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B629AF38296A2A7000772D97 /* Cadance Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B629AF3E296A2A7000772D97 /* CadanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3D296A2A7000772D97 /* CadanceApp.swift */; };
 		B629AF40296A2A7000772D97 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629AF3F296A2A7000772D97 /* Player.swift */; };
@@ -43,7 +42,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B601A12129E4E82C008669DF /* VolumeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
 		B629AF32296A2A7000772D97 /* Cadance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B629AF38296A2A7000772D97 /* Cadance Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cadance Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B629AF3D296A2A7000772D97 /* CadanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadanceApp.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				B629AF3D296A2A7000772D97 /* CadanceApp.swift */,
 				B629AF3F296A2A7000772D97 /* Player.swift */,
 				B642DB31296A744A00A6F4B3 /* Metronome.swift */,
-				B601A12129E4E82C008669DF /* VolumeControl.swift */,
 				B6A19836296B440500C05454 /* Sounds */,
 				B629AF41296A2A7200772D97 /* Assets.xcassets */,
 				B6A19837296B4E1E00C05454 /* Cadance-Watch-App-Info.plist */,
@@ -218,7 +215,6 @@
 			files = (
 				B642DB32296A744A00A6F4B3 /* Metronome.swift in Sources */,
 				B629AF40296A2A7000772D97 /* Player.swift in Sources */,
-				B601A12229E4E82C008669DF /* VolumeControl.swift in Sources */,
 				B629AF3E296A2A7000772D97 /* CadanceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
