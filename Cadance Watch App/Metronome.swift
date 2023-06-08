@@ -10,6 +10,25 @@ class Metronome: ObservableObject {
 
 	@Published var isPlaying = false
 
+	private func configureAudioSession() -> AVAudioSession {
+		let session = AVAudioSession.sharedInstance()
+		try! session.setCategory(
+			.playback,
+			mode: .default,
+			policy: .longFormAudio,
+			options: []
+		)
+		return session
+	}
+
+	private func play() {
+		if beatPlayer.isPlaying {
+			beatPlayer.pause()
+		}
+		beatPlayer.currentTime = 0
+		beatPlayer.play()
+	}
+
 	func start(beatsPerMinute: Int) {
 		let session = configureAudioSession()
 		Task { @MainActor in
@@ -39,22 +58,5 @@ class Metronome: ObservableObject {
 		playSoundConnection = nil
 	}
 
-	private func configureAudioSession() -> AVAudioSession {
-		let session = AVAudioSession.sharedInstance()
-		try! session.setCategory(
-			.playback,
-			mode: .default,
-			policy: .longFormAudio,
-			options: []
-		)
-		return session
-	}
 
-	private func play() {
-		if beatPlayer.isPlaying {
-			beatPlayer.pause()
-		}
-		beatPlayer.currentTime = 0
-		beatPlayer.play()
-	}
 }

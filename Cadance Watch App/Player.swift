@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct Player: View {
-	let cadance = 175
 	@StateObject private var metronome = Metronome()
 
 	var body: some View {
@@ -9,7 +8,8 @@ struct Player: View {
 			if metronome.isPlaying {
 				metronome.stop()
 			} else {
-				metronome.start(beatsPerMinute: cadance)
+				// MARK: PLAY
+				metronome.start(beatsPerMinute: 175)
 			}
 		} label: {
 			Image(systemName: buttonSymbolName)
